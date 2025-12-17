@@ -42,8 +42,9 @@ pipeline {
             steps {
                 sh '''
                   echo "Deploying to server..."
-                  rm -rf $DEPLOY_DIR/*
-                  cp -r dist/* $DEPLOY_DIR/
+                  mkdir -p /tmp/ci-cd-lab-jenkins
+                  rm -rf /tmp/ci-cd-lab-jenkins/*
+                  cp -r dist/* /tmp/ci-cd-lab-jenkins/
                 '''
             }
         }
