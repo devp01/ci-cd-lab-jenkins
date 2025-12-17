@@ -1,9 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs 'node18'   // Configure in Jenkins global tools
-    }
 
     environment {
         APP_NAME = 'ci-cd-lab'
@@ -20,6 +17,8 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
+                sh 'node -v'
+                sh 'npm -v'
                 sh 'npm ci'
             }
         }
