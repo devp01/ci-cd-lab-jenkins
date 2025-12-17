@@ -1,5 +1,5 @@
 function greet(name = 'world') {
-  return `Hello, ${name}!`;
+  return `hi, ${name}!`;
 }
 
 if (typeof module !== 'undefined') module.exports = { greet }; // for tests
