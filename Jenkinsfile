@@ -35,6 +35,14 @@ pipeline {
             }
         }
 
+        stage('Debug Branch') {
+           steps {
+               sh '''
+                echo "BRANCH_NAME=$BRANCH_NAME"
+                echo "GIT_BRANCH=$GIT_BRANCH"
+               '''
+           }  
+       }     
         stage('Deploy') {
             when {
                 branch 'main'
