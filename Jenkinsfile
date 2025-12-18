@@ -46,20 +46,21 @@ pipeline {
            }  
        }     
         stage('Deploy') {
-            when {
-                expression {
-                    env.GIT_BRANCH == 'origin/main'
-                }            
-         }         
-            steps {
-                sh '''
-                  echo "Deploying to server..."
-                  mkdir -p /tmp/ci-cd-lab-jenkins
-                  rm -rf /tmp/ci-cd-lab-jenkins/*
-                  cp -r dist/* /tmp/ci-cd-lab-jenkins/
-                '''
-            }
+    when {
+        expression {
+            env.GIT_BRANCH == 'origin/main'
         }
+    }
+    steps {
+        sh '''
+          echo "Deploying from main branch"
+          mkdir -p /tmp/ci-cd-lab
+          rm -rf /tmp/ci-cd-lab/*
+          cp -r dist/* /tmp/ci-cd-lab/
+        '''
+    }
+}
+
     }
 
     post {
